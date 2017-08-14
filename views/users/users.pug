@@ -1,0 +1,16 @@
+table.table.table-bordered.table-striped
+  thead
+    tr
+      th _id
+      th Nombre
+      th Correo
+      th.col-sm-2
+  tbody
+    tr(ng-repeat="person in user.users")
+      td {{person._id}}
+      td {{person.name}}
+      td {{person.email}}
+      td.col-sm-2
+        a(href="/api/user/{{person._id}}") Editar
+      td.col-sm-2
+        a(href="/api/user/{{person._id}}") Delete

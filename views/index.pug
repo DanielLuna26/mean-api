@@ -1,0 +1,45 @@
+doctype html
+html 
+  head
+    title= title
+    link(href="/css/bootstrap.min.css", rel="stylesheet")
+    link(src="/fonts/glyphicons-halflings-regular.svg")
+    base(href="/")
+  body(ng-app="userApp" ng-controller="mainControlller as main")
+    header
+      div.navbar.navbar-inverse 
+        div.container
+          div.navbar-header
+          ul.nav.navbar-nav
+            li
+              a(href="/api") Home
+                span.glyphicon.glyphicon-user 
+
+          ul.nav.navbar-nav.navbar-right
+            li(ng-if="main.loggedIn")
+              a(href="/api/users") Users 
+            li(ng-if="!main.loggedIn")
+              a(href="/api/user/login") Login
+            li(ng-if="main.loggedIn")
+              a(href="" ng-click="main.doLogout()") Logout
+    main
+    div.container
+      div.content-views
+        div(ng-view)
+    script(src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.5/angular.min.js")
+    script(src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular-animate.js")
+    script(src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular-route.js") 
+
+    script(src="/client/app/controllers/mainCtrl.js")
+    script(src="/client/app/controllers/userCtrl.js")
+    script(src="/client/app/services/AuthService.js")
+    script(src="/client/app/services/UserService.js")
+    script(src="/client/app/app.routes.js")
+    script(src="/client/app/app.js")
+
+    script(src="/js/jquery.min.js")
+    script(src="/js/bootstrap.min.js")
+    script(src="/socket.io/socket.io.js")    
+
+
+

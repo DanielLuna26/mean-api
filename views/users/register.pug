@@ -1,0 +1,37 @@
+extends ../layout
+
+block title
+  title= title
+block css
+  style.
+    .container{
+      margin-top: 30px;
+    }
+block body
+  div.container
+    div.row
+      div.col-md-offset-4.col-md-4
+        form(action="/api/user" method="post")
+          div.form-group
+            span RPE
+            input(type="text" name="rpe").form-control
+          div.form-group
+            span Nombre
+            input(type="text" name="name").form-control
+          div.form-group
+            span Correo electronico
+            input(type="email" name="email").form-control
+          div.form-group
+            span Contraseña
+            input(type="password" name="password").form-control
+          div.form-group
+            span Cargo
+            input(type="text" name="cargo").form-control
+          div.form-group
+            span Zona
+            select.form-control
+              option(value="") Zona norte
+          div.form-group.pull-right
+            button.btn.btn-warning Guardar
+block js
+
